@@ -4,6 +4,10 @@
 # ---- opencode / local tooling / session state ----
 .omo/
 
+# ---- Generated site (built by scripts/build_site.py) ----
+_site/
+__pycache__/
+
 # ---- OS cruft ----
 .DS_Store
 Thumbs.db
