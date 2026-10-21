@@ -1,0 +1,16 @@
+# ---- Obsidian editor state / cache (machine-specific, may hold API keys) ----
+.obsidian/
+
+# ---- opencode / local tooling / session state ----
+.omo/
+
+# ---- OS cruft ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Editors / IDEs ----
+.vscode/
+.idea/
+*.swp
+*~
