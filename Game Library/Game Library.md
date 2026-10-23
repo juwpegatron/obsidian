@@ -19,9 +19,9 @@ Casual categories.
 ## Publishing / sync
 
 - Pushed to GitHub: `juwpegatron/gamelib`, branch `main`.
-- Publishing method: GitHub Actions Pages workflow (`configure-pages` +
-  `upload-pages-artifact` + `deploy-pages`).
-- `.nojekyll` marker included so static files are served as-is.
+- Live site: https://juwpegatron.github.io/gamelib/
+- Publishing method: GitHub Pages **branch build** (`main` / repository root),
+  with a `.nojekyll` marker so files are served as-is (no Jekyll processing).
 - Synced: 2026-10-23.
 
 ## Notes
