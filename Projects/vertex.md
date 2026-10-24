@@ -25,6 +25,7 @@ repo: "https://github.com/juwpegatron/projects"
 - **Reverse** — a point scan → editable parametric CAD (box/cylinder fit).
 - **Drawing → CAD** — a drawing spec → a model (extents + holes).
 - **Automation** — batch export / pattern / drawing sheets with totals.
+- **Guide** — first-run onboarding overlay (auto-opens once, remembered in `localStorage`; reopen via the top-bar **Guide** button or "See how it works"); Esc/backdrop/Got-it to close; full text in `docs/vertex-guide.md`.
 - **Universal** — 20 adapters (Fusion, SOLIDWORKS, FreeCAD, Blender, Onshape, Rhino, SketchUp, Inventor, AutoCAD, CATIA, Solid Edge, Creo, Maya + open formats + simulated).
 
 ## Why it exists
@@ -41,13 +42,13 @@ auditable (typed artifacts), and review-gated.
 > "AI copilot" claim).
 
 ## Verification
-- Engine **165** self-tests; `verify_bridge` all pass; `verify_static` **45**.
+- Engine **165** self-tests; `verify_bridge` all pass; `verify_static` **51** (incl. 6 guide checks across all 3 screens).
 - Independent engine↔bridge **parity**: reverse/drawing/automate **identical**; answers match in **kind** (wording differs between the JS engine and the Python bridge — client-side string variance only).
 - Gate: `build_site` ✓ · `check_site` **PASSED** (34 HTML, 0 errors) · `run_all_tests` **18/18**.
 - Visual: headless screenshot → top bar, hero ("One 3D copilot. For every tool."), product panel, 8 feature cards, numbered steps, footer.
 
 ## Sync
-- GitHub: https://github.com/juwpegatron/projects @ `main` (commit `6e94994`; lineage `0b7eea7` ← `52acc15` ← `e764324`).
+- GitHub: https://github.com/juwpegatron/projects @ `main` (commit `649459c`; lineage `6e94994` ← `0b7eea7` ← `52acc15`).
 - Portfolio: https://juwpegatron.github.io/portfolio/
 - Legacy: [[Part Lab]] / [[chase]] / [[gantry]] all redirect to Vertex.
 
