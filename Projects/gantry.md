@@ -1,72 +1,24 @@
 ---
-title: "gantry — Local desktop engineering copilot (repair + whole assemblies)"
+title: "gantry — renamed to Chase"
 date: 2026-10-24
 tags:
   - rea
-  - project/gantry
-  - status/active
+  - project/chase
+  - status/archived
 source: "https://heyvector.co/"
 repo: "https://github.com/juwpegatron/projects"
 ---
 
-# gantry (Gantry)
+# gantry → renamed to Chase
 
-> A local, offline, zero-dependency desktop engineering copilot for Autodesk
-> Fusion and SOLIDWORKS — diagnose and fix broken models, plan whole assemblies,
-> and review every change before it touches CAD.
+This app was built under the working name **Gantry** and has been **renamed to
+[[Chase]]**. The current note lives at `Projects/chase.md`.
 
-## Why this exists
+- App now at `apps/chase/` in the monorepo (id `chase`, order 11).
+- Reason for the rename: "Chase" (*to chase a thread* = repair a stripped thread;
+  also "chasing down" errors) reads as repair + pursue, and is easier to own than
+  the generic "Gantry".
+- Git: the monorepo commit `e764324` renamed `apps/gantry/` → `apps/chase/`
+  (history preserved via rename detection).
 
-Second iteration on the target **Vector** (`https://heyvector.co/`), framed per the
-request: *"a new desktop engineering copilot that helps fix errors and build whole
-assemblies in Fusion and SolidWorks."* Gantry accepts that framing (repair + whole
-assemblies) but is **local, deterministic, auditable and review-gated** rather than
-a cloud, account-gated AI agent.
-
-> **Honest constraint:** a faithful CAD integration needs a licensed Fusion /
-> SOLIDWORKS host + its vendor API, which cannot run or be verified in this
-> offline, zero-dependency monorepo. So the CAD integration ships as **host
-> connector templates** (Fusion Python API / SOLIDWORKS COM) plus a deterministic
-> **simulation core** — the protocol and the repair/assembly logic are real and
-> tested; the host calls are stubbed and clearly marked.
-
-## Phase 1 — Analysis
-
-- **Target:** `https://heyvector.co/` (Vector) — same public target, re-read through the repair + assembly lens.
-- **Findings:** repairs broken models end to end (G1), fixes yellow/red features (G2), builds assemblies/mechanisms (G3), native feature edits via the host API (G4), change review (G5), automation (G6).
-- **Risks:** R1 cloud privacy/IP (high), R2 lock-in (high), R3 licensed-host dependency (med), R4 non-deterministic AI edits (med), R7 write access to a live model (med), R8 opaque reasoning (low).
-- Analysis JSON: `C:\Users\juwen_lie\AppData\Local\Temp\rea\gantry-analysis.json`
-
-## Phase 2 — Improvement (how we differ)
-
-| Target risk / weakness | Mitigation / complementary feature | Status |
-| --- | --- | --- |
-| R1 Cloud AI reads CAD + questions; requires sign-in | Local-first / offline cockpit + bridge; no account, no network | built |
-| R2 Proprietary, account-gated, no self-host | Open + self-hostable stdlib bridge + portable JSON + open connector templates | built |
-| R3 Needs a licensed CAD host | Simulation core: full repair/assembly workflow with **no CAD host** | built |
-| R4 Non-deterministic AI edits | Deterministic engine: rules → identical output (verified) | built |
-| R7 Write access to a live CAD model | Dry-run + review gate; `confirm:true` required; simulation never writes (`wroteToCad:false`) | built |
-| R8 Opaque reasoning | Auditable typed Diagnosis + RepairPlan / AssemblyPlan + checks | built |
-
-> Improve, do not clone. Gantry is a local, deterministic, auditable copilot with a
-> simulation core — not a cloud AI agent.
-
-## Phase 3 — Project
-
-- Path: `apps/gantry/` (web / server / connectors / tests / docs)
-- Registered in `scripts/apps.json`: yes (order 11)
-- Gate: `build_site.py` ✓ · `check_site.py` **PASSED** ✓ · `run_all_tests.py` **21 passed / 0 failed** ✓
-- Independent verification: engine 48 checks / bridge suite / static 17 checks all pass, plus an **engine↔bridge parity harness** (samples, diagnosis, repair plan, assembly plan are byte-identical; apply gate requires confirm and never writes to CAD).
-- Connectors import cleanly with **no** CAD host; `probe()` → unavailable; `apply_plan()` → `wroteToCad:false`.
-
-## Phase 4 — Sync
-
-- GitHub: https://github.com/juwpegatron/projects @ `main` (commit `fafee0c`)
-- Vault note path: `Projects/gantry.md`
-- Sync channel: filesystem fallback (Obsidian Local REST API down / no `OBSIDIAN_API_KEY`)
-
-## Open questions / next steps
-
-- Verify the connectors against a **real** Fusion / SOLIDWORKS host (needs a licensed seat + the vendor API) — the only unverified surface.
-- Add a DOF/interference solver so assembly `checks` go beyond graph-level constraints.
-- Optional: expose the bridge as a background desktop service (system tray) so the cockpit can reach a live host without a terminal.
+See `Projects/chase.md` for the full analysis, risk matrix and sync record.
